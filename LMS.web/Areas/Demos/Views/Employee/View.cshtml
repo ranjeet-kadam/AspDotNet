@@ -1,0 +1,292 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <style>
+        body{
+            padding-left:2rem;
+           
+           
+        }
+       
+        td{
+          padding:0px 2rem;
+          text-align:center;
+        }
+        .btn:hover{
+          background-color:#007bff;
+
+        }
+        tr{
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .btn:focus{
+          box-shadow: 0 0 0 0.2rem rgb(235 190 249 / 50%);
+        }
+        select:hover{
+          color: #fff;
+        background-color: #5a6268;
+        }
+        select:focus{
+          box-shadow: 0 0 0 0.2rem rgb(108 117 125 / 35%);
+        /* filter: drop-shadow(0 0 0.3rem #5a6268 ); */
+        }
+        .btn{
+          background-color: #6c757d;
+          border: 1.5px solid #007bff;
+          border-radius: 4px;
+          color: white;
+          padding: 1px 28px;
+          transition-duration: 0.4s;
+        }
+        #card{
+          display:inline-block;
+          padding: 0.7rem 3rem 0.7rem;
+          border: solid 0.5px rgb(221, 221, 221);
+          margin: 0.5rem;
+          border-radius: 4px;
+          z-index: 1;
+        }
+        #a1{
+          float:left;
+          margin-right:5rem;
+        }
+        #b1{
+          align-self:flex-end;
+        }
+
+        select{
+          color: #fff;
+          background-color: #fff;
+          border: 1.5px solid #6c757d;
+
+          -moz-appearance: none;
+           -webkit-appearance: none;
+           appearance: none;
+           border-radius: 4px;
+           color: white;
+           background-position: right center;
+           background-repeat: no-repeat;
+           background-size: 1ex;
+              /* background-origin: content-box; */
+        }
+        #sel{
+          width:88px !important;
+          margin-left:10px;
+           padding-left:17px;
+           padding-top: 0.2vw;
+           padding-bottom: 0.2vw;
+           font-size: 15px;
+        }
+        .container
+        {
+          background-color:#fff;
+          border-radius: 3px;
+          margin: 5px;
+          padding: 5px 15px;
+        }
+        section
+        {
+          display:flex;
+          justify-content: center;
+          align-content: center;
+        }
+        .head{
+          font-weight: bold;
+            padding: 18px;
+            background-color: rgb(199, 197, 197);
+            border-radius: 4px;
+        }
+        .desc{
+          padding: 18px;
+          display: block;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: rgb(233, 233, 233);
+            font-size: 3rem;
+            background-color: #0688FB;
+            border-radius: 4px;
+        }
+        li{
+          list-style-type: none;
+        }
+        #key{
+          padding:3px 10px 3px;
+          background-color: #6c757d;
+           margin-left:4vw;
+           border: 1px solid #6c757d;
+           width:65px !important;
+           border-radius: 0px;
+           box-shadow: 1.5px 1.5px 1px black;
+        }
+        i{
+          color:black;
+        }
+        #key:active
+        {
+          border: 1px solid #6c757d;
+          border-radius: 2.5px;
+          box-shadow: 0 0 0 0.15rem black;
+        }
+        .success{
+          border-radius: 4px;
+          padding: 5px 1.5vw;
+          transition-duration: 0.4s;
+          color: #fff;
+        background-color: #D7EAFA;
+        border:none;
+        }
+        .success:hover{
+         color: #fff;
+         background-color: #0688FB;
+         border-color: #000;
+        }
+        .success:focus{
+          box-shadow: 0 0 0 0.2rem rgb(72 180 97 / 50%);
+        }
+        input{
+        border-radius:4px;
+        border:none;
+        border:1px solid darkgray;
+        }
+    </style>
+</head>
+<body>
+<section>
+
+   <div class="container">
+    <div class="desc" style="text-align:center">Setup Your Login Credentials</div>
+     <form name="myform" action="" onsubmit="return validation()" method="post" style="background-color:#F6F1F8;padding-top:2rem;padding-left:7rem">  
+       <span style="margin-left:7.3vw"></span>Full Name<sup style="color:rgb(110, 18, 18)"> * </sup>&nbsp;    
+        <input style="text-align:center; width: 25rem; margin-left: 3.5rem;" type="text" name="fname" id="fname"
+         placeholder=" Name" >&nbsp;&nbsp;&nbsp;<br><br>
+
+         <span style="margin-left:7.3vw"></span>Last Name<sup style="color:rgb(110, 18, 18)"> * </sup>
+         <input type="text" name="lname" id="lname" style="text-align:center; width: 25rem; margin-left: 3.5rem;" placeholder="Nick Name">
+         &nbsp;&nbsp;&nbsp;
+         <br><br>
+
+         <span style="margin-left:7.3vw"></span>Mobile Number
+       <sup style="color:rgb(110, 18, 18)"> * </sup>
+       <input type="text" name="mobilenumber" id="mobilenumber" style="text-align:center; width: 25rem; margin-left: 1.1rem;" placeholder="10 Digit">&nbsp;&nbsp;&nbsp;
+       <br><br>
+
+          <span style="margin-left:7.3vw"></span>
+           E-mail<sup style="color:rgb(110, 18, 18)"> * </sup>
+           <input type="email" style="text-align:center; width: 25rem; margin-left: 5.5rem;" name="email" id="email" placeholder="Email ID">&nbsp;&nbsp;&nbsp;<br><br>
+     
+           <!-- password check  -->
+           <span style="margin-left:7.3vw"></span>Password<sup style="color:rgb(110, 18, 18)"> * </sup>
+           <input style="text-align:center; width: 25rem; margin-left: 4.1rem;" type="text" name="pass"
+             id="pass"
+             placeholder="Password (Must Be 8 Digits)" >&nbsp;&nbsp;&nbsp;<br/><br/>
+
+         <span style="margin-left:7.3vw"></span>Confirm Password
+         <sup style="color: rgb(110, 18, 18)"> * </sup>
+         <input style="text-align:center; width: 25rem; margin-left: .2rem;"
+         type="text" name="cpass" id="cpass" placeholder="Confirm Password" >&nbsp;&nbsp;&nbsp;<br/><br/>
+
+           <span style="margin-left:7.3vw"></span>
+         Employee Type<sup style="color:rgb(110, 18, 18)"> * </sup>
+           <br><br>
+
+         <ul class="radio">
+           <li style="margin-left: 6rem;">
+            <input type="radio" name="branch"  value="opt1" id="opt1">
+            Intern
+           
+           </li>
+           <li style="margin-left: 6rem;"><input type="radio" name="branch" value="opt2" id="opt2">
+            Full Time Employee
+             <br>
+           </li>
+         </ul><br>
+
+       
+       
+       <div style="display:flex;  justify-content:center; align-content:center;">
+         <input type="submit"  class="success btn btn-success" onsubmit ="validation();"
+          style="margin-bottom:10px ; margin-left:8px; font-weight: bold;"
+          value="Submit"></div>
+
+     </form>
+   </div>
+    </section>
+    <script>
+      function validation(){
+          var fname = document.forms.myform.fname;
+          var lname = document.forms.myform.lname;
+          var checkname=/^[A-Za-z]+$/;
+          var checknumber=/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+          var checkemail =/^\w+([\.-]?\w+)*\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+          var regularExpression = /^(?=.*[0-9])(?=.*[!#$%^&*])[a-zA-Z0-9!#$%^&*]{8}$/;
+          var email =  document.forms.myform.email;
+          let mnumber = document.forms.myform.mobilenumber;
+          var pass=document.forms.myform.pass;
+          var cpass=document.forms.myform.cpass;
+         /* var branch=document.forms.myform.querySelector('input[name=branch]:checked');*/
+         var branch = document.querySelector('input[name="branch"]:checked');
+         
+          if(fname.value=="" || !checkname.test(fname.value) ){
+            alert("Kindly Check Your First Name");
+            fname.focus();
+            return false;
+          }        
+          /*else if(fname.value.match(checknumber)){
+            alert("Please Check Your First Name Column Again");
+            return false;
+          }  */      
+          if(lname.value=="" || !checkname.test(lname.value)){
+            alert("Kindly Check Your Last Name");
+            lname.focus();
+            return false;
+          }/*
+          else if(lname.value.match(checknumber)){
+            alert("Please Check Your Last Name Column Again");
+            return false;
+          }*/
+          if(mnumber.value==""|| !checknumber.test(mnumber.value)){
+            alert("Mobile Number Should be of 10 Digits");
+            mnumber.focus();
+            return false;
+          }
+          if(email.value==""){
+            alert("Kindly Check Your Mail ID");
+            email.focus();
+            return false;
+          }
+         
+          if(pass.value.length != 8 && !regularExpression.test(pass.value)){
+            alert("Kindly Put a Strong Password(Must be 8 Digit Must Contain Alphabet and Numbers)");
+            pass.focus();
+            return false;
+          }
+          if(cpass.value==null||cpass.value==""){
+            alert("Empty Confirm Password");
+            cpass.focus();
+            return false;
+          }
+          if( cpass.value!=pass.value){
+            alert("Your confirm password is not matching");
+            return false;
+          }
+          if(branch == null){
+            alert("Kindly Select a Branch");  
+            return false;
+          }
+          return true;
+    }
+    </script>
+    <h1>Thank You </h1>
+</body>
+
